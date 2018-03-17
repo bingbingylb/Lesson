@@ -11,16 +11,16 @@ void DTprint(byte num)  {
 void setup() {
   int i;
   for(i=2;i<10;i++)
-    pinMode(i,OUTPUT);
+    pinMode(i,OUTPUT); 
 }
 
 void loop() {
-  byte r=0x80,p=0x00;
+  byte r=0x80,p=0xff;
   int i,j;
   for(i=0;i<9;i++){
     DTprint(p);
-    p+=r;
-    r>>1;
+    p-=r;
+    r=(r>>1);
     delay(500);
   }
 }
